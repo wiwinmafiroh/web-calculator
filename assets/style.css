@@ -40,7 +40,7 @@ body {
   /* properti pendukung */
   font-size: 1.5em;
   text-align: center;
-  padding: 40px;
+  padding: 32px;
   border: 1px solid black;
   background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
   cursor: pointer;
@@ -58,4 +58,11 @@ body {
 
 .double {
   flex-basis: 50%;
+}
+
+/* Mobile Device */
+@media screen and (max-width: 513px) {
+  .button {
+    padding: 10px;
+  }
 }
