@@ -21,7 +21,12 @@ function clearCalculator() {
 
 // Untuk memasukkan angka ke dalam nilai displayNumber kalkulator
 function inputDigit(digit) {
-  calculator.displayNumber += digit;
+  // Jika displayNumber bernilai '0', maka angka pertama yang dimasukkan pengguna akan menggatikan keseluruhan nilai displayNumber
+  if (calculator.displayNumber === '0') {
+    calculator.displayNumber = digit;
+  } else {
+    calculator.displayNumber += digit;
+  }
 }
 
 // Menginisialisasikan nilai seluruh elemen button pada Variabel buttons
