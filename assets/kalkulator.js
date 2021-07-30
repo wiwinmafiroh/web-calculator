@@ -45,6 +45,26 @@ for (let button of buttons) {
       return;
     }
 
+    // Ketika event target merupakan elemen yg menerapkan class negative
+    if (target.classList.contains('negative')) {
+      inverseNumber();
+      updateDisplay();
+      return;
+    }
+
+    // Ketika event target merupakan elemen yg menerapkan class equals
+    if (target.classList.contains('equals')) {
+      performCalculation();
+      updateDisplay();
+      return;
+    }
+
+    // Ketika event target merupakan elemen yg menerapkan class operator
+    if (target.classList.contains('operator')) {
+      handleOperator(target.innerText);
+      return;
+    }
+
     inputDigit(target.innerText);
     updateDisplay();
   });
