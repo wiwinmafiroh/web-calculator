@@ -38,6 +38,13 @@ for (let button of buttons) {
     // mendapatkan objek elemen yang diklik
     const target = event.target;
 
+    // Ketika event target merupakan elemen yg menerapkan class clear, maka panggil fungsi clearCalculator()
+    if (target.classList.contains('clear')) {
+      clearCalculator();
+      updateDisplay();
+      return;
+    }
+
     inputDigit(target.innerText);
     updateDisplay();
   });
