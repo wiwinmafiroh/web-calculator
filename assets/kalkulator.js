@@ -78,3 +78,17 @@ function inverseNumber() {
 
   calculator.displayNumber = calculator.displayNumber * -1;
 }
+
+// Untuk menetapkan sebuah operator penjumlahan atau pengurangan
+function handleOperator(operator) {
+  if (!calculator.waitingForSecondNumber) {
+    calculator.operator = operator;
+    calculator.waitingForSecondNumber = true;
+    calculator.firstNumber = calculator.displayNumber;
+
+    // Mengatur ulang nilai display number agar tombol selanjutnya dimulai dari angka pertama lagi
+    calculator.displayNumber = '0';
+  } else {
+    alert('Operator sudah ditetapkan');
+  }
+}
