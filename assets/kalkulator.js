@@ -29,6 +29,46 @@ function inputDigit(digit) {
   }
 }
 
+// Untuk mengubah angka menjadi positive atau negative
+function inverseNumber() {
+  if (calculator.displayNumber === '0') {
+    return;
+  }
+
+  calculator.displayNumber = calculator.displayNumber * -1;
+}
+
+// Untuk menetapkan sebuah operator penjumlahan atau pengurangan
+function handleOperator(operator) {
+  if (!calculator.waitingForSecondNumber) {
+    calculator.operator = operator;
+    calculator.waitingForSecondNumber = true;
+    calculator.firstNumber = calculator.displayNumber;
+
+    // Mengatur ulang nilai display number agar tombol selanjutnya dimulai dari angka pertama lagi
+    calculator.displayNumber = '0';
+  } else {
+    alert('Operator sudah ditetapkan');
+  }
+}
+
+// Untuk melakukan kalkulasi
+function performCalculation() {
+  if (calculator.firstNumber == null || calculator.operator == null) {
+    alert("Anda belum menetapkan operator");
+    return;
+  }
+
+  let result = 0;
+  if (calculator.operator === "+") {
+    result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
+  } else {
+    result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
+  }
+
+  calculator.displayNumber = result;
+}
+
 // Menginisialisasikan nilai seluruh elemen button pada Variabel buttons
 const buttons = document.querySelectorAll(".button");
 // Melakukan looping
@@ -68,44 +108,4 @@ for (let button of buttons) {
     inputDigit(target.innerText);
     updateDisplay();
   });
-}
-
-// Untuk mengubah angka menjadi positive atau negative
-function inverseNumber() {
-  if (calculator.displayNumber === '0') {
-    return;
-  }
-
-  calculator.displayNumber = calculator.displayNumber * -1;
-}
-
-// Untuk menetapkan sebuah operator penjumlahan atau pengurangan
-function handleOperator(operator) {
-  if (!calculator.waitingForSecondNumber) {
-    calculator.operator = operator;
-    calculator.waitingForSecondNumber = true;
-    calculator.firstNumber = calculator.displayNumber;
-
-    // Mengatur ulang nilai display number agar tombol selanjutnya dimulai dari angka pertama lagi
-    calculator.displayNumber = '0';
-  } else {
-    alert('Operator sudah ditetapkan');
-  }
-}
-
-// Untuk melakukan kalkulasi
-function performCalculation() {
-  if (calculator.firstNumber == null || calculator.operator == null) {
-    alert("Anda belum menetapkan operator");
-    return;
-  }
-
-  let result = 0;
-  if (calculator.operator === "+") {
-    result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
-  } else {
-    result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
-  }
-
-  calculator.displayNumber = result;
 }
