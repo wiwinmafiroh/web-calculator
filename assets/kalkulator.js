@@ -15,3 +15,7 @@ function clearCalculator() {
   calculator.firstNumber = null;
   calculator.waitingForSecondNumber = false;
 }
+
+function inputDigit(digit) {
+  calculator.displayNumber += digit;
+}
