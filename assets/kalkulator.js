@@ -69,3 +69,12 @@ for (let button of buttons) {
     updateDisplay();
   });
 }
+
+// Untuk mengubah angka menjadi positive atau negative
+function inverseNumber() {
+  if (calculator.displayNumber === '0') {
+    return;
+  }
+
+  calculator.displayNumber = calculator.displayNumber * -1;
+}
